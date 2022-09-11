@@ -1,0 +1,75 @@
+METHOD: main_test
+
+main_test:
+    METHOD: main_test
+    NUMBER_OF_GAUSSIANS: [1]
+    HIDDEN_LAYER_SIZE : [100]
+    SIGMA : [5]
+    SCALER: "MinMaxScaler"
+    DATASET : "Datasets\\ailerons_train.csv"
+    PROBLEM_TYPE: "R"
+    CHECK_CONDITIONS : False
+    MAX_ITER : 100
+    TEST_SIZE : 0.3
+    TYPE_EXE : "test_new_ailerons_reg_100_neurons"
+    POP_SIZE : 8
+    GAUS_PER_NEURON : 1
+    GRAPHIC_ITF : False
+    BOUNDS_REG : [-5, 5]
+    BOUNDS_W : [-10, 10]
+    BOUNDS_G : [0, 10]
+    BOUNDS_C : [-10, 10]
+    PATH : "C:\\Users\\josem\\OneDrive - UNED\\TFM\\repo\\fig\\{problem_type}\\{experiment_name}\\{number_dimensions}\\{hidden_layer_size}\\{test_number}-{name_of_image}-{number_dimensions}-{hidden_layer_size}_neurons_{sigma}_sigma_{domain}.png"
+
+main_test_cv:
+    METHOD: main_test_cv
+    NUMBER_OF_GAUSSIANS: [1]
+    HIDDEN_LAYER_SIZE : [50]
+    SIGMA : [5]
+    SCALER: "MinMaxScaler"
+    DATASET : "diabetes_full.csv"
+    PROBLEM_TYPE: "C"
+    CHECK_CONDITIONS : False
+    STRING_Y: 1
+    MAX_ITER : 100
+    TEST_SIZE : 0.3
+    TYPE_EXE : "test_diabetes_reg_cv"
+    POP_SIZE : 8
+    GAUS_PER_NEURON : 1
+    GRAPHIC_ITF : False
+    BOUNDS_REG : [-5, 5]
+    BOUNDS_W : [-10, 10]
+    BOUNDS_G : [0, 10]
+    BOUNDS_C : [-10, 10]
+    PATH : "C:\\Users\\josem\\OneDrive - UNED\\TFM\\repo\\fig\\{problem_type}\\{experiment_name}\\{number_dimensions}\\{hidden_layer_size}\\{test_number}-{name_of_image}-{number_dimensions}-{hidden_layer_size}_neurons_{sigma}_sigma_{domain}.png"
+
+
+print_several_activation_function_together:
+    METHOD: print_several_activation_function_together
+    TYPE_EXE : "test_for_activation_function_reg"
+    NUMBER_OF_GAUSSIANS: [1]
+    VALUES: [[-2.54314034, -4.42327561, 0.00811055, -1.12670622], [-2.55897572, -6.45827107, 0.01352549, -2.83877817], [-2.17682222, 2.805596, 0.00796933, -1.08252802], [-3.28447499, -9.79675679, 0.00829923517, -1.09318580], [-3.13742574, -8.64291069, 0.00794578549, -1.07416400]]
+    PATH: "C:\\Users\\josem\\OneDrive - UNED\\TFM\\repo\\fig\\{problem_type}\\{experiment_name}\\{number_dimensions}\\{image_name}.png"
+    RANGE_MIN: -100
+    RANGE_MAX: 100
+
+compare_trained_with_classics_activation_function:
+    METHOD: compare_trained_with_classics_activation_function
+    TYPE_EXE : "kinematics_reg_full"
+    PROBLEM_TYPE: "R"
+    HIDDEN_LAYER: 100
+    SCALER: "MinMaxScaler"
+    DATASET: "kinematics_full.csv"
+    TRAINED_FUNCTIONS: [[1.10246408, 7.4811862,  0.25414557, 2.34083269], [ 3.25664222, -0.62644014,  0.25414508,  2.34083403], [ 4.9999917,   9.9998539,   0.26509373, -0.23900358], [1.44001086, 5.07209819, 0.25414623, 2.34083096], [ 4.08189042, -0.24224609,  0.25414732,  2.34082852]]
+    CLASSIC_FUNCTIONS: ['relu', 'sigmoid','tanh']
+    REG_FOR_CLASSIC: [0,0,0]
+
+test_reg_fixed_functions:
+    METHOD: test_reg_fixed_functions
+    PROBLEM_TYPE: "C"
+    TYPE_EXE : "test_reg_with_elm_seed_200_t"
+    HIDDEN_LAYER: 1000
+    SCALER: "MnistScaler"
+    CLASSIC_FUNCTION: "tanh"
+    DATASET: "mnist"
+    RANGE: [-5,-4,-3,-2,-1,0,1,2,3,4,5]
